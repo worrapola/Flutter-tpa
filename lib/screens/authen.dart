@@ -18,10 +18,28 @@ class _AuthenState extends State<Authen> {
     );
   }
 
+  Widget showText() {
+    return Text(
+      'Kit TPA',
+      style: TextStyle(
+        fontSize: 30.0,
+        color: Colors.blue[200],
+        fontWeight: FontWeight.bold,
+        fontFamily: 'IndieFlower'
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('Authen'),
+      body: Container(
+        padding: EdgeInsets.only(top: 60.0),
+        alignment: Alignment.topCenter,
+        child: Column(
+          children: <Widget>[showLogo(), showText()],
+        ),
+      ),
     );
   }
 }

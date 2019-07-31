@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Authen extends StatefulWidget {
@@ -42,7 +43,7 @@ class _AuthenState extends State<Authen> {
     );
   }
 
-   Widget passwordText() {
+  Widget passwordText() {
     return Container(
       width: 200.0,
       child: TextFormField(
@@ -53,12 +54,71 @@ class _AuthenState extends State<Authen> {
         ),
       ),
     );
-  } 
+  }
+
+  Widget signInButton() {
+    return RaisedButton(
+      color: Colors.blue[400],
+      child: Text(
+        'Sign In',
+        style: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      onPressed: () {},
+    );
+  }
+
+  Widget signUpButton() {
+    return RaisedButton(
+      child: Text(
+        'Sign up',
+        style: TextStyle(
+          color: Colors.blue,
+        ),
+      ),
+      onPressed: () {},
+    );
+  }
+
+  Widget showButton() {
+    return Container(
+      width: 200.0,
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: signInButton(),
+          ),
+          mySizeBox(),
+          Expanded(
+            child: signUpButton(),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget mySizeBox() {
+    return SizedBox(
+      width: 8.0,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    var white = Colors.white;
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(
+          gradient: RadialGradient(
+            colors: [
+              Colors.white,
+              Colors.yellow[300],
+            ],
+            radius: 5.0,
+            center: Alignment.topCenter,
+          ),
+        ),
         padding: EdgeInsets.only(top: 60.0),
         alignment: Alignment.topCenter,
         child: Column(
@@ -66,7 +126,8 @@ class _AuthenState extends State<Authen> {
             showLogo(),
             showText(),
             emailText(),
-            passwordText()
+            passwordText(),
+            showButton(),
           ],
         ),
       ),

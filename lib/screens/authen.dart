@@ -22,13 +22,38 @@ class _AuthenState extends State<Authen> {
     return Text(
       'Kit TPA',
       style: TextStyle(
-        fontSize: 30.0,
-        color: Colors.blue[200],
-        fontWeight: FontWeight.bold,
-        fontFamily: 'IndieFlower'
+          fontSize: 30.0,
+          color: Colors.blue[200],
+          fontWeight: FontWeight.bold,
+          fontFamily: 'IndieFlower'),
+    );
+  }
+
+  Widget emailText() {
+    return Container(
+      width: 200.0,
+      child: TextFormField(
+        keyboardType: TextInputType.emailAddress,
+        decoration: InputDecoration(
+          labelText: 'Email :',
+          hintText: 'your@email.com',
+        ),
       ),
     );
   }
+
+   Widget passwordText() {
+    return Container(
+      width: 200.0,
+      child: TextFormField(
+        obscureText: true,
+        decoration: InputDecoration(
+          labelText: 'Password :',
+          hintText: 'More 6 characters',
+        ),
+      ),
+    );
+  } 
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +62,12 @@ class _AuthenState extends State<Authen> {
         padding: EdgeInsets.only(top: 60.0),
         alignment: Alignment.topCenter,
         child: Column(
-          children: <Widget>[showLogo(), showText()],
+          children: <Widget>[
+            showLogo(),
+            showText(),
+            emailText(),
+            passwordText()
+          ],
         ),
       ),
     );

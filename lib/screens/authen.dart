@@ -1,5 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:pun_tpa/screens/register.dart';
 
 class Authen extends StatefulWidget {
   @override
@@ -77,7 +77,11 @@ class _AuthenState extends State<Authen> {
           color: Colors.blue,
         ),
       ),
-      onPressed: () {},
+      onPressed: () {
+        print('You click Sign up');
+        var registerRoute = MaterialPageRoute(builder: (BuildContext context)=> Register());
+        Navigator.of(context).push(registerRoute);
+      },
     );
   }
 
